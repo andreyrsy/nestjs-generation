@@ -75,7 +75,7 @@ A API estará disponível em `http://localhost:4000`.
 
 ```
 ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│  tb_usuarios │     │ tb_postagens │     │   tb_temas  │
+│ tb_usuarios │     │tb_postagens │     │   tb_temas  │
 ├─────────────┤     ├─────────────┤     ├─────────────┤
 │ id          │──┐  │ id          │  ┌──│ id          │
 │ nome        │  │  │ titulo      │  │  │ descricao   │
