@@ -1,118 +1,114 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# Blog Pessoal API
 
-<p>
-  Pacotes baixados no projeto\n
-  npm install --save @nestjs/typeorm typeorm mysql2
+API REST para um blog pessoal desenvolvida com **NestJS**, **TypeORM** e **MySQL**.
 
-Pacotes Validation
-npm install --save class-validator class-transformer
+## 📋 Funcionalidades
 
-</p>
+- **Postagens** - CRUD completo de postagens
+- **Temas** - Categorização de postagens por tema
+- **Usuários** - Gerenciamento de usuários com autenticação
+- **Relacionamentos** - Postagens vinculadas a temas e usuários
 
-<br />
+## 🏗️ Arquitetura
 
-| Pacote           | Descrição                                                                                                                                                                                                                                                                                              |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Validator**    | Pacote que fornece um conjunto de decorators que permitem validar os atributos das Classes Entidade (veremos mais adiante). <br />**Exemplo:** No atributo e-mail o validation checará se o usuário digitou realmente um endereço de e-mail no atributo                                                |
-| **Transformer**  | Pacote utilizado para mapear os Objetos Simples (Objetos não criados por uma Classe com Método Construtor) em Objetos de Classe, permitindo que sejam aplicadas as transformações (validações) necessárias, através de funções TypeScript, geralmente Arrow Functions.                                 |
-| **TypeORM**      | Pacote responsável por conectar e criar as tabelas no Banco de dados, além de interagir com os Objetos persistidos no Bancos de dados, através do Mapeamento Objeto Relacional (ORM - Object Relation Mapping). Para mais detalhes, veja o Cookbook sobre <a href="03.md" target="_blank">TypeORM</a>. |
-| **MySQL Driver** | Pacote responsável por criar a conexão entre nossa aplicação e o Banco de Dados MySQL. Se o SGBD (PostgreSQL, SQL Server, entre outros), for trocado no futuro precisaremos instalar um novo pacote com o driver específico para o novo SGBD.                                                          |
-
-<br />
-
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Project setup
-
-```bash
-$ npm install
+```
+src/
+├── auth/           # Módulo de autenticação
+├── postagem/       # Módulo de postagens
+├── tema/           # Módulo de temas
+├── usuario/        # Módulo de usuários
+├── app.module.ts   # Módulo principal
+└── main.ts         # Ponto de entrada
 ```
 
-## Compile and run the project
+## 🔧 Pré-requisitos (Windows)
 
-```bash
-# development
-$ npm run start
+### Node.js
+Baixe e instale o [Node.js LTS](https://nodejs.org/) (versão 18 ou superior).
 
-# watch mode
-$ npm run start:dev
+### MySQL
+1. Baixe o [MySQL Community Server](https://dev.mysql.com/downloads/mysql/)
+2. Durante a instalação, defina a senha do root como `mysql`
+3. Crie o banco de dados:
 
-# production mode
-$ npm run start:prod
+```sql
+CREATE DATABASE db_blogpessoal;
 ```
 
-## Run tests
+## 🚀 Instalação
 
 ```bash
-# unit tests
-$ npm run test
+# Clone o repositório
+git clone <url-do-repositorio>
+cd nestjs-generation
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+# Instale as dependências
+npm install
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+## ▶️ Executando
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+# Desenvolvimento (com hot-reload)
+npm run start:dev
+
+# Produção
+npm run build
+npm run start:prod
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+A API estará disponível em `http://localhost:4000`.
 
-## Resources
+## 📦 Dependências do Projeto
 
-Check out a few resources that may come in handy when working with NestJS:
+| Pacote | Versão | Descrição |
+|--------|--------|-----------|
+| @nestjs/core | ^11.0.1 | Framework NestJS |
+| @nestjs/typeorm | ^11.0.0 | Integração TypeORM |
+| typeorm | ^0.3.27 | ORM para banco de dados |
+| mysql2 | ^3.15.3 | Driver MySQL |
+| bcrypt | ^6.0.0 | Hash de senhas |
+| class-validator | ^0.14.3 | Validação de DTOs |
+| class-transformer | ^0.5.1 | Transformação de objetos |
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+## 🗄️ Modelo de Dados
 
-## Support
+```
+┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│  tb_usuarios │     │ tb_postagens │     │   tb_temas  │
+├─────────────┤     ├─────────────┤     ├─────────────┤
+│ id          │──┐  │ id          │  ┌──│ id          │
+│ nome        │  │  │ titulo      │  │  │ descricao   │
+│ usuario     │  └─>│ texto       │<─┘  └─────────────┘
+│ senha       │     │ data        │
+│ foto        │     │ tema_id     │
+└─────────────┘     │ usuario_id  │
+                    └─────────────┘
+```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## 📝 Endpoints
 
-## Stay in touch
+### Postagens
+- `GET /postagens` - Listar todas
+- `GET /postagens/:id` - Buscar por ID
+- `POST /postagens` - Criar
+- `PUT /postagens` - Atualizar
+- `DELETE /postagens/:id` - Deletar
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### Temas
+- `GET /temas` - Listar todos
+- `GET /temas/:id` - Buscar por ID
+- `POST /temas` - Criar
+- `PUT /temas` - Atualizar
+- `DELETE /temas/:id` - Deletar
 
-## License
+### Usuários
+- `GET /usuarios` - Listar todos
+- `GET /usuarios/:id` - Buscar por ID
+- `POST /usuarios/cadastrar` - Cadastrar
+- `PUT /usuarios/atualizar` - Atualizar
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+
+## 📄 Licença
+
+Este projeto está sob a licença UNLICENSED.
