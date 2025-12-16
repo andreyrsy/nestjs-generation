@@ -45,13 +45,13 @@ describe('Testes dos módulos Usuario e Auth (e2e)', () => {
       })
       .expect(201);
 
-    console.log(resposta);
-
     usuarioId = (resposta.body as { id: number }).id;
+
+    expect(resposta.body.usuario).toEqual('murilo@email.com');
   });
 
   it('2 - Não deve cadastrar um Usuario duplicado', async () => {
-    await request(app.getHttpServer())
+    const resposta = await request(app.getHttpServer())
       .post('/usuarios/cadastrar')
       .send({
         nome: 'Murilo',
@@ -60,6 +60,8 @@ describe('Testes dos módulos Usuario e Auth (e2e)', () => {
         foto: 'https://i.imgur.com/zEM4Z3S.jpeg',
       })
       .expect(400);
+    expect(resposta.body).toBeDefined();
+    expect(resposta.body.message).toBeDefined();
   });
 
   it('3 - Deve autenticar o Usuario (Login)', async () => {
@@ -72,14 +74,19 @@ describe('Testes dos módulos Usuario e Auth (e2e)', () => {
       .expect(200);
 
     token = (resposta.body as { token: string }).token;
+
+    expect(token).toBeDefined();
   });
 
   it('4 - Deve listar todos os usuários', async () => {
-    return request(app.getHttpServer())
+    const resposta = await request(app.getHttpServer())
       .get('/usuarios/all')
       .set('Authorization', token)
       .send({})
       .expect(200);
+
+    // verifica se a resposta é um array
+    expect(Array.isArray(resposta.body)).toBe(true);
   });
 
   it('5 - Deve atualizar um Usuario', async () => {
