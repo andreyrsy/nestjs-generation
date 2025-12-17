@@ -10,9 +10,9 @@ async function bootstrap() {
     .setTitle('API Blog Pessoal')
     .setDescription('Documentação da API')
     .setContact(
-      'Generation Brasil',
-      'http://brasil.genaration.org',
-      'contato@generation.org',
+      'Andrey Rosa',
+      'http://github.com/andreyrsy',
+      'andreyrsy@gmail.com',
     )
     .setVersion('1.0')
     .addBearerAuth()
