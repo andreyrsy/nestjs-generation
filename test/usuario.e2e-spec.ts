@@ -38,9 +38,9 @@ describe('Testes dos módulos Usuario e Auth (e2e)', () => {
     const resposta = await request(app.getHttpServer())
       .post('/usuarios/cadastrar')
       .send({
-        nome: 'Murilo',
-        usuario: 'murilo@email.com',
-        senha: 'murilo123',
+        nome: 'andrey',
+        usuario: 'andrey@email.com',
+        senha: 'andrey123',
         foto: 'https://i.imgur.com/zEM4Z3S.jpeg',
       })
       .expect(201);
@@ -54,9 +54,9 @@ describe('Testes dos módulos Usuario e Auth (e2e)', () => {
     const resposta = await request(app.getHttpServer())
       .post('/usuarios/cadastrar')
       .send({
-        nome: 'Murilo',
-        usuario: 'murilo@email.com',
-        senha: 'murilo123',
+        nome: 'andrey',
+        usuario: 'andrey@email.com',
+        senha: 'andrey123',
         foto: 'https://i.imgur.com/zEM4Z3S.jpeg',
       })
       .expect(400);
@@ -68,8 +68,8 @@ describe('Testes dos módulos Usuario e Auth (e2e)', () => {
     const resposta = await request(app.getHttpServer())
       .post('/usuarios/logar')
       .send({
-        usuario: 'murilo@email.com',
-        senha: 'murilo123',
+        usuario: 'andrey@email.com',
+        senha: 'andrey123',
       })
       .expect(200);
 
@@ -95,9 +95,9 @@ describe('Testes dos módulos Usuario e Auth (e2e)', () => {
       .set('Authorization', token)
       .send({
         id: usuarioId,
-        nome: 'Murilo atualizado',
-        usuario: 'murilo-atualizado@email.com',
-        senha: 'murilo456',
+        nome: 'andrey atualizado',
+        usuario: 'andrey-atualizado@email.com',
+        senha: 'andrey456',
         foto: 'https://i.imgur.com/zEM4Z3S.jpeg',
       })
       .expect(200)
